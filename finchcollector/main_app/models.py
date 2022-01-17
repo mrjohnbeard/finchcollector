@@ -12,6 +12,7 @@ MEALS = (
 class Toy(models.Model):
   name = models.CharField(max_length=50)
   color = models.CharField(max_length=20)
+  
 
   def __str__(self):
     return self.name
@@ -25,6 +26,7 @@ class Finch(models.Model):
   color = models.CharField(max_length=150)
   occupation = models.TextField(max_length=300)
   age = models.IntegerField()
+  toys = models.ManyToManyField(Toy)
 
   def __str__(self):
     return self.name
