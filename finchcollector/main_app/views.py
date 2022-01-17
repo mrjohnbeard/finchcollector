@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from .models import Finch, Toy
 from .forms import FeedingForm
 
@@ -23,7 +24,7 @@ def finches_detail(request, finch_id):
 
 class FinchCreate(CreateView):
   model = Finch
-  fields = '__all__'
+  fields = ['name', 'color', 'occupation', 'age']
   success_url = '/finches/'
   
 class FinchUpdate(UpdateView):
